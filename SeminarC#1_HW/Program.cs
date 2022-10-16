@@ -79,7 +79,7 @@ int current = 1;
 if (num < 0)
 {
     current = num;
-    num = -num;
+    num = 0;
 }
 
 while (current <= num)
