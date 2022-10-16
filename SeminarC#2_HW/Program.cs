@@ -45,10 +45,23 @@ int number = Convert.ToInt32(Console.ReadLine());
 int thirdDigit = FindThirdDigit(number);
 Console.Write($"Third digit of {number} is {thirdDigit}"); */
 
+/*Задача 15: Напишите программу, которая принимает на вход цифру, обозначающую день недели, 
+и проверяет, является ли этот день выходным.
+6 -> да
+7 -> да
+1 -> нет
 
+bool WeekEnds(int num)
+{
+    if(num == 6 || num == 7)
+    {
+        return true;
+    }
+    return false;
+}
 
+Console.Write("Enter the day of the week ");
+int dayNumber = Convert.ToInt32(Console.ReadLine());
 
-
-
-
-
+bool result = WeekEnds(dayNumber);
+Console.WriteLine($"This day of the week is a holiday: {result}");*/
