@@ -52,4 +52,22 @@ double z1 = Convert.ToDouble(Console.ReadLine());
 double findDistans = FindDistans(x, y, z, x1, y1, z1);
 Console.WriteLine($"Distans between your two point is {findDistans}");*/
 
+/*Напишите программу, которая принимает на вход число (N) и выдаёт таблицу кубов чисел от 1 до N.
+3 -> 1, 8, 27
+5 -> 1, 8, 27, 64, 125
 
+void ShowNumbers(int num)
+{
+    int count = 1;
+
+    while (count <= num)
+    {
+        double n = Math.Pow(count,3);
+        Console.Write(n + " ");
+        count++;
+    }
+}
+
+Console.Write("Input your number: ");
+int number = Convert.ToInt32(Console.ReadLine());
+ShowNumbers(number); */
