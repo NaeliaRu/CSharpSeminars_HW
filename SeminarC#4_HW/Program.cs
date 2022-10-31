@@ -51,6 +51,56 @@ Console.WriteLine($"Sum of digits: {sum}");*/
 m = 5 -> [1, 2, 5, 7, 19]
 m = 3 -> [6, 1, 33]*/
 
+/*Решение 1 (когда элементы массива рандомны).
 
+int[] CreateArray(int size)
+{
+    int[] array = new int[size];
 
+    for(int i = 0; i < size; i++)
+    {
+        array[i] = new Random().Next();
+    }
+    return array;
+}
+
+void ShowArray(int[] array)
+{
+    for(int i = 0; i < array.Length; i++)
+        Console.WriteLine(array[i] + " ");
+
+    Console.WriteLine();
+}
+
+Console.Write("Input number of elements: ");
+int size = Convert.ToInt32(Console.ReadLine());
+int[] yourArray = CreateArray(size);
+ShowArray(yourArray);*/
+
+/* Решение 2 (когда пользователь сам задает элементы массива)*/
+
+int[] CreateArray(int size)
+{
+    int[] array = new int[size];
+
+    for(int i = 0; i < size; i++)
+    {
+        Console.Write($"Input array element {i + 1}: ");
+        array[i] = Convert.ToInt32(Console.ReadLine());
+    }
+    return array;
+}
+
+void ShowArray(int[] array)
+{
+    for(int i = 0; i < array.Length; i++)
+        Console.Write(array[i] + " ");
+
+    Console.WriteLine();
+}
+
+Console.Write("Input number of elements: ");
+int size = Convert.ToInt32(Console.ReadLine());
+int[] yourArray = CreateArray(size);
+ShowArray(yourArray);
 
