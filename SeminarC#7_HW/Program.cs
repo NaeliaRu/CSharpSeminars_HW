@@ -135,24 +135,33 @@ void Show2dArray(int[,] array)
     }
 }
 
-double FindArithmeticMeanArray(int [,] array)
+void ShowArray(double[] array)
+{
+    for(int i = 0; i < array.Length; i++)
+        Console.Write(array[i] + " ");
+
+    Console.WriteLine();
+}
+
+
+
+double[] CreateArray(int [,] array)
 {
     double[] sum = new double [array.GetLength(1)];
+
     for(int j = 0; j < array.GetLength(1); j++)
     {
         for(int i = 0; i < array.GetLength(0); i++)
-            sum[i] += array[i,j];
-    }
+            sum[j] += array[i,j];
+            sum[j] /= array.GetLength(0);
+            sum[j] = Math.Round(sum[j], 2);
+    };
 
-    for (int i = 0; i < array.Length; i++)
-    {
-        int [] result = sum[i] / array.GetLength(1);
-    }
-
-    return result[i];
+    return sum;
 }
 
-int[,] myArray = CreateRandom2dArray();
-Show2dArray(myArray);
-double result = FindArithmeticMeanArray(myArray);
-Console.Write("Your result: " + result);
+int [,] UserArray = CreateRandom2dArray();
+Show2dArray(UserArray);
+double[] array = CreateArray(UserArray);
+Console.WriteLine();
+ShowArray(array);
