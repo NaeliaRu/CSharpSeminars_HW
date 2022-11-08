@@ -49,7 +49,7 @@ Show2dArray(myArray); */
 8 4 2 4
 1 7 -> числа с такими индексами в массиве нет */
 
-int[,] CreateRandom2dArray()
+/* int[,] CreateRandom2dArray()
 {
     Console.Write("Input a number of rows: ");
     int rows = Convert.ToInt32(Console.ReadLine());
@@ -94,4 +94,65 @@ void FindUserElement(int[,] array)
 
 int[,] myArray = CreateRandom2dArray();
 Show2dArray(myArray);
-FindUserElement(myArray);
+FindUserElement(myArray);*/
+
+/* Задача 52. Задайте двумерный массив из целых чисел. 
+Найдите среднее арифметическое элементов в каждом столбце.
+Например, задан массив:
+1 4 7 2
+5 9 2 3
+8 4 2 4
+Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6; 3. */
+
+int[,] CreateRandom2dArray()
+{
+    Console.Write("Input a number of rows: ");
+    int rows = Convert.ToInt32(Console.ReadLine());
+    Console.Write("Input a number of colums: ");
+    int colums = Convert.ToInt32(Console.ReadLine());
+    Console.Write("Input a min possible value: ");
+    int minValue = Convert.ToInt32(Console.ReadLine());
+    Console.Write("Input a max possible value: ");
+    int maxValue = Convert.ToInt32(Console.ReadLine());
+
+    int[,] array = new int[rows,colums];
+
+    for(int i = 0; i < rows; i++)
+    {
+        for(int j = 0; j < colums; j++)
+            array[i,j] = new Random().Next(minValue, maxValue + 1);
+    }
+return array;
+}
+
+void Show2dArray(int[,] array)
+{
+    for(int i = 0; i < array.GetLength(0); i++)
+    {
+        for(int j = 0; j < array.GetLength(1); j++)
+            Console.Write(array[i,j] + " ");
+        Console.WriteLine();
+    }
+}
+
+double FindArithmeticMeanArray(int [,] array)
+{
+    double[] sum = new double [array.GetLength(1)];
+    for(int j = 0; j < array.GetLength(1); j++)
+    {
+        for(int i = 0; i < array.GetLength(0); i++)
+            sum[i] += array[i,j];
+    }
+
+    for (int i = 0; i < array.Length; i++)
+    {
+        int [] result = sum[i] / array.GetLength(1);
+    }
+
+    return result[i];
+}
+
+int[,] myArray = CreateRandom2dArray();
+Show2dArray(myArray);
+double result = FindArithmeticMeanArray(myArray);
+Console.Write("Your result: " + result);
