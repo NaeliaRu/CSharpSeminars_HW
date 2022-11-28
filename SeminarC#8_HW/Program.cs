@@ -153,7 +153,7 @@ else
 18 20
 15 18 */
 
-int[,] CreateRandom2dArray()
+/* int[,] CreateRandom2dArray()
 {
     Console.Write("Input a number of rows: ");
     int rows = Convert.ToInt32(Console.ReadLine());
@@ -219,7 +219,50 @@ Show2dArray(userArray2);
 int[,] result = MatrixMultiplication(userArray1, userArray2);
 Console.WriteLine();
 Console.WriteLine("Product of two matrices");
-Show2dArray(result);
+Show2dArray(result);*/
+
+/* Задача 60. ...Сформируйте трёхмерный массив из неповторяющихся двузначных чисел. 
+Напишите программу, которая будет построчно выводить массив, добавляя индексы каждого элемента.
+Массив размером 2 x 2 x 2
+66(0,0,0) 25(0,1,0)
+34(1,0,0) 41(1,1,0)
+27(0,0,1) 90(0,1,1)
+26(1,0,1) 55(1,1,1) */
 
 
+int[, ,] CreateRandom3dArray()
+{
+    Console.Write("Input a number of rows: ");
+    int rows = Convert.ToInt32(Console.ReadLine());
+    Console.Write("Input a number of colums: ");
+    int colums = Convert.ToInt32(Console.ReadLine());
+    Console.Write("Input a number of depth: ");
+    int depth = Convert.ToInt32(Console.ReadLine());
 
+    int[, ,] array = new int[rows, colums, depth];
+
+    for(int i = 0; i < array.GetLength(0); i++)
+        for(int j = 0; j < array.GetLength(1); j++)
+            for (int k = 0; k < array.GetLength(2); k++ )
+            {
+            array[i,j,k] = new Random().Next(10, 100);
+            }
+
+    return array;
+}
+
+void Show3dArray(int[,,] array)
+{
+  for (int i = 0; i < array.GetLength(0); i++)
+    for (int j = 0; j < array.GetLength(1); j++)
+    {
+        for (int k = 0; k < array.GetLength(2); k++)
+        Console.Write($"{array[i, j, k]}(X{i},Y{j},Z{k}) ");
+        Console.WriteLine("|");
+    }
+}
+
+int[,,] userArray3d = CreateRandom3dArray();
+Console.WriteLine("-----");
+Console.WriteLine("Your 3D array: ");
+Show3dArray(userArray3d);
